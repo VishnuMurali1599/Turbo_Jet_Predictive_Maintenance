@@ -1,0 +1,11 @@
+pandas
+numpy
+scikit-learn
+Flask
+notebook
+python-box == 6.0.2
+seaborn
+pymongo
+mlflow
+dvc
+mysql

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="font-family: 'Roboto', sans-serif; font-size: 24px;">Prophecy of Thrust: Engine Lifespan Oracle</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <title>Remaining Useful Life Prediction on Turbo Jet Engines</title>
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        .login {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <h1>Remaining Useful Life Prediction on Turbo Jet Engines</h1>
+
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <h1>
+                <legend>Predictive Maintenance</legend>
+            </h1>
+            <div class="mb-3">
+                <label class="form-label">Present Lifecycle</label>
+                <input class="form-control" type="number" name="cycle" placeholder="Enter present life cycle value"
+                    min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Operating Point 1</label>
+                <input class="form-control" type="number" name="op1"
+                    placeholder="Enter op1 value" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Operating Point 2</label>
+                <input class="form-control" type="number" name="op2"
+                    placeholder="Enter op2 value" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Pressure Sensors </label>
+                <input class="form-control" type="number" name="sensor2"
+                    placeholder="Enter pressure sensor readings" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Vibration Sensors</label>
+                <input class="form-control" type="number" name="sensor3"
+                    placeholder="Enter vibration sensor readings" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Speed Sensors</label>
+                <input class="form-control" type="number" name="sensor4"
+                    placeholder="Enter speed sensor readings" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Fuel flow Sensors</label>
+                <input class="form-control" type="number" name="sensor5"
+                    placeholder="Enter ff readings" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Thrust Sensors</label>
+                <input class="form-control" type="number" name="sensor6"
+                    placeholder="Enter thrust sensor readings" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Health Monitoring sensors</label>
+                <input class="form-control" type="number" name="sensor7"
+                    placeholder="Enter health Monitoring sensor readings" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Oil Quality sensors</label>
+                <input class="form-control" type="number" name="sensor8"
+                    placeholder="Enter oil quality sensor readings" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Blade Tip Clearence sensor</label>
+                <input class="form-control" type="number" name="sensor9"
+                    placeholder="Enter Blade tip Clearence sensor readings" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Emission Sensors</label>
+                <input class="form-control" type="number" name="sensor10"
+                    placeholder="Enter emission sensor readings" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Vane position Sensors</label>
+                <input class="form-control" type="number" name="sensor11"
+                    placeholder="Enter vane postion sensor readings" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Coolant temparature sensor</label>
+                <input class="form-control" type="number" name="sensor12"
+                    placeholder="Enter coolant temparature sensors reading" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Airflow sensors</label>
+                <input class="form-control" type="number" name="sensor13"
+                    placeholder="Enter airflow sensor readings" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">load Cells</label>
+                <input class="form-control" type="number" name="sensor14"
+                    placeholder="Enter Load cells value " min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Accelerometers</label>
+                <input class="form-control" type="number" name="sensor15"
+                    placeholder="Enter Accelerometers value" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Proximity Sensors</label>
+                <input class="form-control" type="number" name="sensor16"
+                    placeholder="Enter Proximity sensor readings" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Electromagnetic sensor</label>
+                <input class="form-control" type="number" name="sensor17"
+                    placeholder="Enter electromagnetic sensor readings" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Optical Sensors</label>
+                <input class="form-control" type="number" name="sensor20"
+                    placeholder="Enter optical sensor" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">sensor 21 </label>
+                <input class="form-control" type="number" name="sensor21"
+                    placeholder="Enter sensor 21 score" min='0' max='10000' step="0.01" />
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Predicting RUL Life" required />
+            </div>
+        </form>
+        <h2>
+            The Remaining Useful Life that we can expect around : {{results}}
+        </h2>
+   <body>
+</html>
